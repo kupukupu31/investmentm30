@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\TestingController;
-use App\Http\Controllers\Home\HomeSliderController;           
+use App\Http\Controllers\Home\HomeSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ use App\Http\Controllers\Home\HomeSliderController;
 Route::get('/', function () {
     return view('frontend.index');
 });
- 
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -28,27 +28,23 @@ Route::get('/dashboard', function () {
 //
 
 //
+
+//Alden Auth 
+
+
 //adminroute
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout','destroy')->name('admin.logout');
-    Route::get('/admin/profile','profile')->name('admin.profile');
-    Route::get('/edit/profile','EditProfile')->name('edit.profile');
+    Route::get('/admin/logout', 'destroy')->name('admin.logout');
+    Route::get('/admin/profile', 'profile')->name('admin.profile');
+    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
     Route::post('/store/profile', 'StoreProfile')->name('store.profile');
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
-    Route::get('/update/home', 'UpdateHome')->name('update.home');
-  
 });
 // Home Slide All Route 
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');
-
 });
-Route::controller(TestingController::class)->group(function () {
-    Route::get('/home/slide', 'HomeSliderr')->name('haduken');
-
-});
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -56,7 +52,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-
-
-
+require __DIR__ . '/auth.php';

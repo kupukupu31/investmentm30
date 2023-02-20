@@ -9,10 +9,10 @@ use App\Models\HomeSlide;
 class HomeSliderController extends Controller
 {
     //
-    public function HomeSlider(){
+    public function HomeSlider()
+    {
 
         $homeslide = HomeSlide::find(1);
-        return view('admin.home_slide.home_slide_all',compact('homeslide'));
-
-     } // End Method 
-} 
+        return view('admin.home_slide.home_slide_all', compact('homeslide'));
+    } // End Method 
+}
