@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\TestingController;
-use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\HomeSliderController;           
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +36,7 @@ Route::controller(AdminController::class)->group(function () {
     Route::post('/store/profile', 'StoreProfile')->name('store.profile');
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
+    Route::get('/update/home', 'UpdateHome')->name('update.home');
   
 });
 // Home Slide All Route 

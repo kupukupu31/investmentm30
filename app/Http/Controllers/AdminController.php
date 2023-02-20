@@ -71,6 +71,11 @@ public function ChangePassword(){
     return view('admin.admin_change_password');
 
 }// End Method
+public function UpdateHome(){
+
+    return view('admin.Home.testing');
+
+}// End Method
 
 
 public function UpdatePassword(Request $request){

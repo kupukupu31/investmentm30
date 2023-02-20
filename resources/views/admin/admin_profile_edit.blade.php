@@ -10,6 +10,7 @@
         <div class="col-12">
         <div class="card">
         <div class="card-body">
+        
 
                         <h4 class="card-title">Edit Profile page</h4>
                    <form method="post" action="{{ route('store.profile') }}" enctype="multipart/form-data">
@@ -51,6 +52,7 @@
                             </div>
                         </div>
                         <input type="submit" class="btn btn-warning btn-rounded waves-effect waves-light" value="Update Profile">
+                        
     </form>
                        
                         <!-- end row -->

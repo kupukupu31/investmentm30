@@ -26,8 +26,8 @@
                 <span>Home Slide Setup</span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
-            
-            
+            <li><a href="{{url('/home/slide') }}">Home Slide</a></li>
+           
             </ul>
         </li>
             <li>
