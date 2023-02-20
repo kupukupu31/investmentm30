@@ -22,15 +22,20 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
-//
 
-//
 
 //Alden Auth 
+//Admin Role
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
+});
 
+
+
+//User Role
+Route::get('/user/dashboard', function () {
+    return view('admin.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 //adminroute
 Route::controller(AdminController::class)->group(function () {
