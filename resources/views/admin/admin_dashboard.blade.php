@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Dashboard | Upcube - Admin & Dashboard Template</title>
+        <title>Admin Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -693,7 +693,7 @@
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Upcube</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">M30 Investments</a></li>
                                             <li class="breadcrumb-item active">Dashboard</li>
                                         </ol>
                                     </div>

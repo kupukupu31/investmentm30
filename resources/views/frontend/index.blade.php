@@ -35,7 +35,7 @@
     <div class="col-xl-5 col-lg-6 col-md-8">
     <div class="section__title">
     <span class="sub-title">OUR INVESTMENT PLANS</span>
-    <h2 class="title">Creates amazing digital experiences</h2>
+    <h2 class="title">Types of Investments and How They Work</h2>
     </div>
     </div>
     <div class="col-xl-5 col-lg-6 col-md-4">
