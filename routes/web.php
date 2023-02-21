@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\TestingController;
 use App\Http\Controllers\Home\HomeSliderController;
@@ -21,10 +23,19 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+//Show Login Page - edit later
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/', [IndexController::class, 'Index']);
+
+//User Role
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard'); //user dashboard
+});
 
 
-
-//Alden Auth 
 //Admin Role
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -32,10 +43,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 
-//User Role
-Route::get('/user/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 //adminroute
 Route::controller(AdminController::class)->group(function () {
@@ -46,6 +54,7 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
+
 // Home Slide All Route 
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');

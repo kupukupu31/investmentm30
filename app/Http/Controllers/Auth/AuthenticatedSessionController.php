@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
         $request->authenticate();
 
@@ -34,7 +34,13 @@ class AuthenticatedSessionController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
+        $url = '';
+        if ($request->user()->role === 'admin') {
+            $url = 'admin/dashboard';
+        } elseif ($request->user()->role === 'user') {
+            $url = 'user/dashboard';
+        }
+        return redirect()->intended($url)->with($notification);
     }
 
     /**
