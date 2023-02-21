@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Home\TestingController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Home\HomeSliderController;
 
 /*
@@ -33,9 +34,19 @@ Route::get('/', [IndexController::class, 'Index']);
 //User Role
 Route::middleware(['auth'])->group(function () {
     Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard'); //user dashboard
+ 
 });
 
+Route::controller(TransactionController::class)->name('addmoney')->group(function(){
+    Route::get('/user/addmoney', 'create'); //Addmoney
+    Route::post('/user/addmoney', 'store');
+});
 
+// Route::controller(TransactionController::class)->group(function () {
+//     Route::get('user/transanctions', 'transanctions'); //transaction
+    
+// });
+Route::get('user/transanctions', [TransactionController::class, 'transanctions'])->name('transanctions');
 //Admin Role
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');

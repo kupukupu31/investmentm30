@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('transaction_id');
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('transaction_id')->nullable();
             $table->string('tnx')->nullable();
             $table->string('description')->nullable();
             $table->double('invest_amount');
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->string('method')->nullable();
             $table->integer('already_return_profit')->default(0);
             $table->double('total_profit_amount')->default(0);

@@ -23,7 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //     'email',
     //     'password',
     // ];
-    protected $guarded = [];
+    // protected $guarded = [];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,4 +42,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relationship with listings
+    public function transactions() {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
 }
