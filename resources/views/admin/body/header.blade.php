@@ -1,4 +1,4 @@
-
+@extends('admin.admin_dashboard')
 <header id="page-topbar">
 <div class="navbar-header">
 <div class="d-flex">

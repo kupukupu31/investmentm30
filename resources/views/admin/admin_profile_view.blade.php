@@ -1,4 +1,4 @@
-@extends('admin.admin_master')
+@extends('admin.admin_dashboard')
 @section('admin')
 
 
@@ -10,7 +10,7 @@
                             <div class="col-lg-6">
                             <div class="card"> <br><br>
                                 <center>
-                                    <img class="card-img-top img-fluid rounded-circle avatar-xl" src="{{ (!empty($adminData->profile_image))? url('upload/admin_images/'.$adminData->profile_image):url('upload/no_image.jpg') }}" alt="Card image cap">
+                                    <img class="card-img-top img-fluid rounded-circle avatar-xl" src="{{ (!empty($adminData->profile_image))? url('{{ asset('backend/upload/admin_images/') }}'.$adminData->profile_image):url({{ asset('backend/upload/no_image.jpg') }}) }}" alt="Card image cap">
                                     </center>
                              <div class="card-body"><hr>
                                         <h4 class="card-title">Name : {{ $adminData->name }}</h4> <hr>

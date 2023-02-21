@@ -1,6 +1,6 @@
 
 @@ -0,0 +1,65 @@
-@extends('admin.admin_master')
+@extends('admin.admin_dashboard')
 @section('admin')
 
 
